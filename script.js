@@ -26,11 +26,20 @@ function addBookToLibrary(title,author,pages) {
     appendNewBooks();
 }
 
+function removeCard(index) {
+    myLibrary.splice(index-1,1)
+    appendNewBooks();
+}
+
 function appendNewBooks() {
     document.querySelectorAll('.card').forEach((element)=>{
         element.remove();
     })
     myLibrary.reverse();
+
+    
+
+
 
     myLibrary.forEach(element => {
             //card text
@@ -38,10 +47,10 @@ function appendNewBooks() {
         cardTitle.innerText = element.title;
 
         let cardAuthor = document.createElement("h4")
-        cardAuthor.innerText= element.author;
+        cardAuthor.innerText = "By: " + element.author;
 
         let cardPages = document.createElement("h4")
-        cardPages.innerText = element.pages;
+        cardPages.innerText = "pages: " + element.pages;
 
         //buttons
         let cardIsReadButn = document.createElement("button")
@@ -52,9 +61,8 @@ function appendNewBooks() {
 
         let cardRemoveButn = document.createElement("button")
         cardRemoveButn.setAttribute("class", "remove")
-        cardRemoveButn.addEventListener("click", ()=>{
-            // must remove card
-        })
+        cardRemoveButn.setAttribute("id", myLibrary.length)
+
         //card
         let divCard = document.createElement("div");
         divCard.setAttribute("class", "card")
@@ -62,10 +70,13 @@ function appendNewBooks() {
         //append
         cardSection.append(divCard)
         divCard.append(cardTitle,cardAuthor,cardPages,cardIsReadButn,cardRemoveButn)
-
-
         cardIsReadButn.innerText = "Not Read"
         cardRemoveButn.innerText = "Remove"
+
+        //remove event for specific card
+        cardRemoveButn.addEventListener("click", ()=>{
+            removeCard(cardRemoveButn.id)
+        })
     });
 
 }
