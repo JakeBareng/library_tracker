@@ -22,12 +22,12 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary(title,author,pages) {
-    myLibrary.push(new Book(title,author,pages))
+    myLibrary.unshift(new Book(title,author,pages))
     appendNewBooks();
 }
 
 function removeCard(index) {
-    myLibrary.splice(index-1,1)
+    myLibrary.splice(index,1)
     appendNewBooks();
 }
 
@@ -35,11 +35,6 @@ function appendNewBooks() {
     document.querySelectorAll('.card').forEach((element)=>{
         element.remove();
     })
-    myLibrary.reverse();
-
-    
-
-
 
     myLibrary.forEach(element => {
             //card text
@@ -61,7 +56,7 @@ function appendNewBooks() {
 
         let cardRemoveButn = document.createElement("button")
         cardRemoveButn.setAttribute("class", "remove")
-        cardRemoveButn.setAttribute("id", myLibrary.length)
+        cardRemoveButn.setAttribute("id", myLibrary.indexOf(element))
 
         //card
         let divCard = document.createElement("div");
