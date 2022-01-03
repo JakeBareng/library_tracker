@@ -98,7 +98,6 @@ function appendNewBooks() {
 
 
 let isReadValue = false;
-
 fisRead.addEventListener("click", ()=>{
     isReadValue = false;
     if(fisRead.getAttribute("class") == "isReadChange"){
