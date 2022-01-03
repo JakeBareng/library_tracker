@@ -27,6 +27,11 @@ function addBookToLibrary(title,author,pages) {
 }
 
 function appendNewBooks() {
+    document.querySelectorAll('.card').forEach((element)=>{
+        element.remove();
+    })
+    myLibrary.reverse();
+
     myLibrary.forEach(element => {
             //card text
         let cardTitle = document.createElement("h3")
