@@ -68,7 +68,7 @@ function appendNewBooks() {
         cardIsReadButn.innerText = "Not Read"
         cardRemoveButn.innerText = "Remove"
 
-        //remove event for specific card
+        //remove event
         cardRemoveButn.addEventListener("click", ()=>{
             removeCard(cardRemoveButn.id)
         })
@@ -83,12 +83,18 @@ addNew.addEventListener("click", () => {
     overlay.style.display = "block flex";
 })
 submitButn.addEventListener("click", () => {
-    if (ftitle.value == "" && fauthor.value=="" && fpages.value == "") {
+/*     if (ftitle.value == "" && fauthor.value=="" && fpages.value == "") {
         overlay.style.display = "none";
         return
-    }
+    } */
     addBookToLibrary(ftitle.value, fauthor.value, fpages.value)
     overlay.style.display = "none";
 })
 
+document.addEventListener("keydown",(e)=>{
+    if (e.key == "Enter") {
+        addBookToLibrary(ftitle.value, fauthor.value, fpages.value)
+        overlay.style.display = "none";
+    }
+})
 

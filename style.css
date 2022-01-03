@@ -7,8 +7,11 @@
 #cardSection {
 	display: grid;
 	grid-template-columns: repeat(5, 250px);
-	justify-items: center;
+	justify-content: center;
+	align-items: center;
 	grid-gap: 50px;
+	justify-items: center;
+	grid-auto-rows: 300px;
 }
 
 #addCard {
@@ -19,6 +22,9 @@
 	box-shadow: 5px 10px 19px #0600bf36;
 	border-radius: 15%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #addCard:hover {
     transition-duration: 100ms;
