@@ -114,7 +114,7 @@ addNew.addEventListener("click", () => {
     fisRead.setAttribute('class','isRead')
     isReadValue = false;
 
-    overlay.style.display = "block flex";
+    overlay.style.display = "flex";
 })
 
 submitButn.addEventListener("click", () => {
