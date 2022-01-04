@@ -59,7 +59,7 @@ function appendNewBooks() {
         let cardIsReadButn = document.createElement("button")
         if (element.isRead == false) {
             cardIsReadButn.setAttribute("class", "isRead")
-            cardIsReadButn.innerText = "Not Read"
+            cardIsReadButn.innerText = "Not read"
         }
         else {
             cardIsReadButn.setAttribute("class", "isReadChange")
