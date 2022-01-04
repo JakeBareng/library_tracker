@@ -3,6 +3,7 @@ const overlay = document.querySelector("#overlay")
 const submitButn = document.querySelector("#submit")
 const cardSection = document.getElementById("cardSection")
 //form inputs
+const cardForm = document.getElementById("cardForm")
 const ftitle = document.getElementById("title")
 const fauthor = document.getElementById("author")
 const fpages = document.getElementById("pages")
@@ -106,14 +107,13 @@ fisRead.addEventListener("click", ()=>{
 })
 
 addNew.addEventListener("click", () => {
+    cardForm.setAttribute("class","cardForm")
     ftitle.value = "";
     fauthor.value = "";
     fpages.value = "";
-
     fisRead.innerText = "Have you read this book? (no)"
     fisRead.setAttribute('class','isRead')
     isReadValue = false;
-
     overlay.style.display = "flex";
 })
 
@@ -131,7 +131,6 @@ overlay.addEventListener("keydown",(e)=>{
 
 storedData.reverse()
 storedData.forEach(element => {
-    
     addBookToLibrary(element.title,element.author,element.pages,element.isRead);
 });
 
