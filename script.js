@@ -8,11 +8,9 @@ const fauthor = document.getElementById("author")
 const fpages = document.getElementById("pages")
 const fisRead = document.getElementById("isRead")
 
+const storedData = JSON.parse(localStorage.getItem("userBooks"))
 const myLibrary = [];
 
-
-
-//finish isread button
 function Book(title, author, pages, isread) {
     this.title = title;
     this.author = author;
@@ -23,7 +21,6 @@ function Book(title, author, pages, isread) {
 function addBookToLibrary(title,author,pages,isRead) {
     myLibrary.unshift(new Book(title,author,pages,isRead))
     appendNewBooks();
-    
 }
 
 function removeCard(index) {
@@ -40,6 +37,9 @@ Book.prototype.readToggle = function isReadToggle() {
 }
 
 function appendNewBooks() {
+    localStorage.setItem("userBooks", JSON.stringify(myLibrary))
+
+
     document.querySelectorAll('.card').forEach((element)=>{
         element.remove();
     })
@@ -65,6 +65,7 @@ function appendNewBooks() {
             cardIsReadButn.setAttribute("class", "isReadChange")
             cardIsReadButn.innerText = "This book has been read"
         }
+
         let cardRemoveButn = document.createElement("button")
         cardRemoveButn.setAttribute("class", "remove")
         cardRemoveButn.setAttribute("id", myLibrary.indexOf(element))
@@ -77,8 +78,6 @@ function appendNewBooks() {
         cardSection.append(divCard)
         divCard.append(cardTitle,cardAuthor,cardPages,cardIsReadButn,cardRemoveButn)
  
-
-
         //button events
         cardRemoveButn.addEventListener("click", ()=>{
             removeCard(cardRemoveButn.id)
@@ -89,10 +88,6 @@ function appendNewBooks() {
     });
 
 }
-
-
-
-
 
 
 let isReadValue = false;
@@ -133,4 +128,11 @@ overlay.addEventListener("keydown",(e)=>{
         overlay.style.display = "none";
     }
 })
+
+storedData.reverse()
+storedData.forEach(element => {
+    
+    addBookToLibrary(element.title,element.author,element.pages,element.isRead);
+});
+
 
