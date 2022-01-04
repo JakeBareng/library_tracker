@@ -31,13 +31,11 @@ function removeCard(index) {
     appendNewBooks();
 }
 
-function isReadToggle(index) {
-    if (myLibrary[index].isRead == false) {
-        myLibrary[index].isRead = true;
+Book.prototype.readToggle = function isReadToggle() {
+    if (this.isRead != true) {
+        this.isRead = true;
     }
-    else {
-        myLibrary[index].isRead = false;
-    }
+    else this.isRead = false
     appendNewBooks();
 }
 
@@ -86,7 +84,7 @@ function appendNewBooks() {
             removeCard(cardRemoveButn.id)
         })
         cardIsReadButn.addEventListener("click", ()=>{
-            isReadToggle(cardRemoveButn.id)
+            element.readToggle();
         })
     });
 
