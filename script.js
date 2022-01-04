@@ -122,12 +122,6 @@ submitButn.addEventListener("click", () => {
     overlay.style.display = "none";
 })
 
-overlay.addEventListener("keydown",(e)=>{
-    if (e.key == "Enter") {
-        addBookToLibrary(ftitle.value, fauthor.value, fpages.value, isReadValue)
-        overlay.style.display = "none";
-    }
-})
 
 storedData.reverse()
 storedData.forEach(element => {
