@@ -68,10 +68,10 @@ p{
     width: 205px;
     height: 255px;
 }
-h3, h4{
-    display: flex;
-    justify-content: center;
-    margin: 2px;
+h3, h4 {
+	display: flex;
+	justify-content: flex-start;
+	margin: 2px;
 }
 
 
