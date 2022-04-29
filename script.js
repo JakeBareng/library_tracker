@@ -12,11 +12,13 @@ const fisRead = document.getElementById("isRead")
 const storedData = JSON.parse(localStorage.getItem("userBooks"))
 const myLibrary = [];
 
-function Book(title, author, pages, isread) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isread;
+class Book{
+    constructor (title, author, pages, isread) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isread;
+    }
 }
 
 function addBookToLibrary(title,author,pages,isRead) {
